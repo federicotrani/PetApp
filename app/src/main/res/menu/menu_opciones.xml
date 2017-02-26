@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/menu_contacto"
+        android:id="@+id/mnuContacto"
+        android:orderInCategory="100">
+    </item>
+    <item
+        android:title="@string/menu_acerca"
+        android:id="@+id/mnuAcerca"
+        android:orderInCategory="101">
+    </item>
+    <item
+        android:title="@string/menu_favoritos"
+        android:id="@+id/mnuFavoritos"
+        android:orderInCategory="102"
+        app:showAsAction="always"
+        android:icon="@drawable/fivestar">
+    </item>
+</menu>
