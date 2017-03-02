@@ -7,14 +7,19 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.example.ftrani.petapp.adapter.MascotaAdaptador;
-import com.example.ftrani.petapp.pojo.Mascota;
+import com.example.ftrani.petapp.model.Mascota;
+import com.example.ftrani.petapp.model.ConstructorMascotas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class FavoritosActivity extends AppCompatActivity {
 
-    ArrayList<Mascota> mascotas;
-    private RecyclerView listaMascotas;
+    ArrayList<Mascota> listaMascotas;
+    private RecyclerView rvMascotas;
+    private ConstructorMascotas constructorMascotas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,29 +35,36 @@ public class FavoritosActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        rvMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
-        listaMascotas.setLayoutManager(llm);
+        rvMascotas.setLayoutManager(llm);
 
         iniciarListaMascotas();
         iniciarAdaptador();
     }
 
     public void iniciarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
-        listaMascotas.setAdapter(adaptador);
+
+        //Asigno ordern inverso por likes de la lista de mascotas
+        Comparator<Mascota> comparador = Collections.reverseOrder();
+        Collections.sort(listaMascotas, comparador);
+
+        ArrayList<Mascota> topFive = new ArrayList<Mascota>(listaMascotas.subList(0,4));
+
+        //Solo mantengo los 5 primeros => Top 5
+        MascotaAdaptador adaptador = new MascotaAdaptador(topFive, this);
+        rvMascotas.setAdapter(adaptador);
     }
 
     public void iniciarListaMascotas(){
-        mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota(R.drawable.loro,8,"PERICO","LORO"));
-        mascotas.add(new Mascota(R.drawable.perro2,22,"FLECHA","PERRO"));
-        mascotas.add(new Mascota(R.drawable.pez,4,"FISH","PEZ"));
-        mascotas.add(new Mascota(R.drawable.sapo,1,"VERRUGA","SAPO"));
-        mascotas.add(new Mascota(R.drawable.tortuga,5,"MANUELITA","TORTUGA"));
+        constructorMascotas = new ConstructorMascotas(getBaseContext());
+
+        listaMascotas = constructorMascotas.obtenerFavoritos();
+
+
     }
 }

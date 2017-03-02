@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ftrani.petapp.R;
-import com.example.ftrani.petapp.pojo.Like;
+import com.example.ftrani.petapp.model.Like;
 
 import java.util.ArrayList;
 

@@ -5,18 +5,14 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.Fragment;
-import android.widget.Toast;
 
-import com.example.ftrani.petapp.adapter.MascotaAdaptador;
 import com.example.ftrani.petapp.adapter.PageAdapter;
-import com.example.ftrani.petapp.fragment.PerfilFragment;
-import com.example.ftrani.petapp.fragment.RecyclerViewFragment;
-import com.example.ftrani.petapp.pojo.Mascota;
+import com.example.ftrani.petapp.vista.fragment.PerfilFragment;
+import com.example.ftrani.petapp.vista.fragment.RecyclerViewFragment;
 
 import java.util.ArrayList;
 

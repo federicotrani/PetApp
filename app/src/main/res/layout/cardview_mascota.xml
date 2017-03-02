@@ -23,44 +23,60 @@
 
         />
 
-  <LinearLayout
-      android:orientation="horizontal"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      >
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <ImageButton
+        android:id="@+id/btnLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_likes"
+        android:layout_alignParentLeft="true"
+        />
 
-      <ImageView
-          android:id="@+id/imgHueso"
-          android:layout_width="31dp"
-          android:layout_height="27dp"
-          android:src="@drawable/hueso"
-          />
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      >
 
       <TextView
           android:id="@+id/txtNombre"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:paddingLeft="8dp"
+
           android:text="ROLO"
           android:textSize="20sp"
-          android:textStyle="bold"/>
+          android:textStyle="bold"
+          />
 
       <TextView
-          android:id="@+id/txtLikes"
-          android:layout_width="match_parent"
+          android:id="@+id/txtRaza"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="20"
-          android:textSize="20sp"
-          android:textStyle="bold"
-          android:gravity="right"/>
-      <ImageView
-          android:id="@+id/imgHueso2"
-          android:layout_width="31dp"
-          android:layout_height="27dp"
-          android:src="@drawable/hueso"
+          android:text="raza"
+
           />
 
   </LinearLayout>
+
+      <TextView
+          android:id="@+id/txtLikes"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="0 Likes"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+           />
+
+
+  </RelativeLayout>
 
 
 </LinearLayout>
